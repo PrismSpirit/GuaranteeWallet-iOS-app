@@ -49,7 +49,7 @@ struct LoginView: View {
             .padding(.leading, 15)
             
             HStack {
-                Image(systemName: "envelope")
+                Image(systemName: "person")
                     .font(.title2)
                     .foregroundColor(.white)
                     .frame(width: 35)
