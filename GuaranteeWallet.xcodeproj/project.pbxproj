@@ -7,18 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189FAF4F1BB1860883C6FEAE /* Pods_GuaranteeWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C07E51DDBE8725E85A15DBF /* Pods_GuaranteeWallet.framework */; };
+		C408A5B127E840A9008C51A4 /* KeyPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408A5B027E840A9008C51A4 /* KeyPadView.swift */; };
+		C408A5B327EA1E22008C51A4 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408A5B227EA1E22008C51A4 /* HistoryView.swift */; };
+		C410CAF227C62E6300532578 /* TokenDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C410CAF127C62E6300532578 /* TokenDetailView.swift */; };
+		C410CAF427C62EEC00532578 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C410CAF327C62EEC00532578 /* TabViewModel.swift */; };
+		C410CAF627C7A2E600532578 /* GuaranteeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C410CAF527C7A2E600532578 /* GuaranteeCardView.swift */; };
+		C410CAFA27C876C600532578 /* AppNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C410CAF927C876C600532578 /* AppNetworking.swift */; };
+		C43E2D58281BDCBB00236C59 /* tabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43E2D57281BDCBB00236C59 /* tabButton.swift */; };
+		C43E2D5A281BDD6300236C59 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43E2D59281BDD6300236C59 /* Components.swift */; };
+		C440D4552825028F00DED9EF /* ShowApprovedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C440D4542825028F00DED9EF /* ShowApprovedView.swift */; };
 		C44467BE279E957A0027BB2B /* GuaranteeWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44467BD279E957A0027BB2B /* GuaranteeWalletApp.swift */; };
 		C44467C0279E957A0027BB2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44467BF279E957A0027BB2B /* ContentView.swift */; };
 		C44467C2279E957A0027BB2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44467C1279E957A0027BB2B /* Assets.xcassets */; };
 		C44467C5279E957A0027BB2B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44467C4279E957A0027BB2B /* Preview Assets.xcassets */; };
+		C44467D3279FD5E90027BB2B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44467D2279FD5E90027BB2B /* SignUpView.swift */; };
+		C44467D5279FDBAF0027BB2B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44467D4279FDBAF0027BB2B /* LoginView.swift */; };
+		C44A663127B25DDC00DBE7A7 /* ManufacturerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A663027B25DDC00DBE7A7 /* ManufacturerView.swift */; };
+		C44A663327B25DE500DBE7A7 /* ResellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A663227B25DE500DBE7A7 /* ResellerView.swift */; };
+		C44A663527B25E6300DBE7A7 /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A663427B25E6300DBE7A7 /* CustomerView.swift */; };
+		C44A663B27B2674E00DBE7A7 /* VerifiyGuaranteeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A663A27B2674E00DBE7A7 /* VerifiyGuaranteeView.swift */; };
+		C44A663D27B26CAA00DBE7A7 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A663C27B26CAA00DBE7A7 /* MoreView.swift */; };
+		C44BF50827FC345C00FB6AB6 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44BF50727FC345C00FB6AB6 /* UserInfo.swift */; };
+		C46CAE8327C332900073B89C /* ShowGuaranteeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CAE8227C332900073B89C /* ShowGuaranteeView.swift */; };
+		C46CAE8627C3375F0073B89C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CAE8527C3375F0073B89C /* Card.swift */; };
+		C47AFE6727CCAEDF00DA7D1A /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = C47AFE6627CCAEDF00DA7D1A /* CodeScanner */; };
+		C47AFE6B27CD288A00DA7D1A /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47AFE6A27CD288A00DA7D1A /* ErrorHandler.swift */; };
+		C4B48FE227D1D65A00FE8692 /* JWTClaims.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B48FE127D1D65A00FE8692 /* JWTClaims.swift */; };
+		C4F48817280D50BC0069E693 /* HistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F48816280D50BC0069E693 /* HistoryCardView.swift */; };
+		C4F4881B280D62410069E693 /* ScrollRefreshableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F4881A280D62410069E693 /* ScrollRefreshableView.swift */; };
+		C4F4881D280E64DE0069E693 /* TxHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F4881C280E64DE0069E693 /* TxHistory.swift */; };
+		C4F4881F280F244A0069E693 /* MintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F4881E280F244A0069E693 /* MintView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F74CCA51F752F2E23AF294D /* Pods-GuaranteeWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuaranteeWallet.release.xcconfig"; path = "Target Support Files/Pods-GuaranteeWallet/Pods-GuaranteeWallet.release.xcconfig"; sourceTree = "<group>"; };
+		4C050996E660AB13E75E9B6B /* Pods-GuaranteeWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuaranteeWallet.debug.xcconfig"; path = "Target Support Files/Pods-GuaranteeWallet/Pods-GuaranteeWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		9C07E51DDBE8725E85A15DBF /* Pods_GuaranteeWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GuaranteeWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C408A5B027E840A9008C51A4 /* KeyPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadView.swift; sourceTree = "<group>"; };
+		C408A5B227EA1E22008C51A4 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		C410CAF127C62E6300532578 /* TokenDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailView.swift; sourceTree = "<group>"; };
+		C410CAF327C62EEC00532578 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
+		C410CAF527C7A2E600532578 /* GuaranteeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuaranteeCardView.swift; sourceTree = "<group>"; };
+		C410CAF927C876C600532578 /* AppNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNetworking.swift; sourceTree = "<group>"; };
+		C43E2D57281BDCBB00236C59 /* tabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabButton.swift; sourceTree = "<group>"; };
+		C43E2D59281BDD6300236C59 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		C440D4542825028F00DED9EF /* ShowApprovedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowApprovedView.swift; sourceTree = "<group>"; };
 		C44467BA279E957A0027BB2B /* GuaranteeWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuaranteeWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44467BD279E957A0027BB2B /* GuaranteeWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuaranteeWalletApp.swift; sourceTree = "<group>"; };
 		C44467BF279E957A0027BB2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C44467C1279E957A0027BB2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C44467C4279E957A0027BB2B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C44467D2279FD5E90027BB2B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		C44467D4279FDBAF0027BB2B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C44A663027B25DDC00DBE7A7 /* ManufacturerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturerView.swift; sourceTree = "<group>"; };
+		C44A663227B25DE500DBE7A7 /* ResellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResellerView.swift; sourceTree = "<group>"; };
+		C44A663427B25E6300DBE7A7 /* CustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerView.swift; sourceTree = "<group>"; };
+		C44A663A27B2674E00DBE7A7 /* VerifiyGuaranteeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiyGuaranteeView.swift; sourceTree = "<group>"; };
+		C44A663C27B26CAA00DBE7A7 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		C44BF50727FC345C00FB6AB6 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		C46CAE8227C332900073B89C /* ShowGuaranteeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGuaranteeView.swift; sourceTree = "<group>"; };
+		C46CAE8527C3375F0073B89C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C47AFE6A27CD288A00DA7D1A /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		C4B48FE127D1D65A00FE8692 /* JWTClaims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTClaims.swift; sourceTree = "<group>"; };
+		C4F48816280D50BC0069E693 /* HistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCardView.swift; sourceTree = "<group>"; };
+		C4F4881A280D62410069E693 /* ScrollRefreshableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollRefreshableView.swift; sourceTree = "<group>"; };
+		C4F4881C280E64DE0069E693 /* TxHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxHistory.swift; sourceTree = "<group>"; };
+		C4F4881E280F244A0069E693 /* MintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MintView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +81,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C47AFE6727CCAEDF00DA7D1A /* CodeScanner in Frameworks */,
+				189FAF4F1BB1860883C6FEAE /* Pods_GuaranteeWallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06DBA00F523E4FB26325C449 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C050996E660AB13E75E9B6B /* Pods-GuaranteeWallet.debug.xcconfig */,
+				0F74CCA51F752F2E23AF294D /* Pods-GuaranteeWallet.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		45241D591B08D9AA12C143C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C07E51DDBE8725E85A15DBF /* Pods_GuaranteeWallet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C410CAFB27C8788E00532578 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C410CAF927C876C600532578 /* AppNetworking.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C44467B1279E957A0027BB2B = {
 			isa = PBXGroup;
 			children = (
 				C44467BC279E957A0027BB2B /* GuaranteeWallet */,
 				C44467BB279E957A0027BB2B /* Products */,
+				06DBA00F523E4FB26325C449 /* Pods */,
+				45241D591B08D9AA12C143C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,8 +135,10 @@
 		C44467BC279E957A0027BB2B /* GuaranteeWallet */ = {
 			isa = PBXGroup;
 			children = (
+				C46CAE8427C3371D0073B89C /* Model */,
+				C44467CB279FD5B90027BB2B /* View */,
+				C410CAFB27C8788E00532578 /* Controller */,
 				C44467BD279E957A0027BB2B /* GuaranteeWalletApp.swift */,
-				C44467BF279E957A0027BB2B /* ContentView.swift */,
 				C44467C1279E957A0027BB2B /* Assets.xcassets */,
 				C44467C3279E957A0027BB2B /* Preview Content */,
 			);
@@ -67,6 +153,45 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C44467CB279FD5B90027BB2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C43E2D59281BDD6300236C59 /* Components.swift */,
+				C44467BF279E957A0027BB2B /* ContentView.swift */,
+				C44467D4279FDBAF0027BB2B /* LoginView.swift */,
+				C44467D2279FD5E90027BB2B /* SignUpView.swift */,
+				C44A663427B25E6300DBE7A7 /* CustomerView.swift */,
+				C44A663027B25DDC00DBE7A7 /* ManufacturerView.swift */,
+				C44A663227B25DE500DBE7A7 /* ResellerView.swift */,
+				C43E2D57281BDCBB00236C59 /* tabButton.swift */,
+				C4F4881E280F244A0069E693 /* MintView.swift */,
+				C408A5B027E840A9008C51A4 /* KeyPadView.swift */,
+				C4F4881A280D62410069E693 /* ScrollRefreshableView.swift */,
+				C46CAE8227C332900073B89C /* ShowGuaranteeView.swift */,
+				C440D4542825028F00DED9EF /* ShowApprovedView.swift */,
+				C410CAF127C62E6300532578 /* TokenDetailView.swift */,
+				C44A663A27B2674E00DBE7A7 /* VerifiyGuaranteeView.swift */,
+				C408A5B227EA1E22008C51A4 /* HistoryView.swift */,
+				C4F48816280D50BC0069E693 /* HistoryCardView.swift */,
+				C410CAF527C7A2E600532578 /* GuaranteeCardView.swift */,
+				C44A663C27B26CAA00DBE7A7 /* MoreView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C46CAE8427C3371D0073B89C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C46CAE8527C3375F0073B89C /* Card.swift */,
+				C4F4881C280E64DE0069E693 /* TxHistory.swift */,
+				C44BF50727FC345C00FB6AB6 /* UserInfo.swift */,
+				C47AFE6A27CD288A00DA7D1A /* ErrorHandler.swift */,
+				C410CAF327C62EEC00532578 /* TabViewModel.swift */,
+				C4B48FE127D1D65A00FE8692 /* JWTClaims.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +199,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C44467C8279E957A0027BB2B /* Build configuration list for PBXNativeTarget "GuaranteeWallet" */;
 			buildPhases = (
+				7624C195BD898EB4C2C15475 /* [CP] Check Pods Manifest.lock */,
 				C44467B6279E957A0027BB2B /* Sources */,
 				C44467B7279E957A0027BB2B /* Frameworks */,
 				C44467B8279E957A0027BB2B /* Resources */,
+				66887DDCF24D290AB67D0198 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GuaranteeWallet;
+			packageProductDependencies = (
+				C47AFE6627CCAEDF00DA7D1A /* CodeScanner */,
+			);
 			productName = GuaranteeWallet;
 			productReference = C44467BA279E957A0027BB2B /* GuaranteeWallet.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +241,9 @@
 				Base,
 			);
 			mainGroup = C44467B1279E957A0027BB2B;
+			packageReferences = (
+				C47AFE6527CCAEDF00DA7D1A /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = C44467BB279E957A0027BB2B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,12 +265,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		66887DDCF24D290AB67D0198 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GuaranteeWallet/Pods-GuaranteeWallet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GuaranteeWallet/Pods-GuaranteeWallet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GuaranteeWallet/Pods-GuaranteeWallet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7624C195BD898EB4C2C15475 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GuaranteeWallet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C44467B6279E957A0027BB2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4F4881F280F244A0069E693 /* MintView.swift in Sources */,
+				C47AFE6B27CD288A00DA7D1A /* ErrorHandler.swift in Sources */,
+				C4F48817280D50BC0069E693 /* HistoryCardView.swift in Sources */,
+				C440D4552825028F00DED9EF /* ShowApprovedView.swift in Sources */,
+				C44A663127B25DDC00DBE7A7 /* ManufacturerView.swift in Sources */,
+				C46CAE8627C3375F0073B89C /* Card.swift in Sources */,
+				C410CAF627C7A2E600532578 /* GuaranteeCardView.swift in Sources */,
+				C44BF50827FC345C00FB6AB6 /* UserInfo.swift in Sources */,
+				C410CAFA27C876C600532578 /* AppNetworking.swift in Sources */,
+				C4B48FE227D1D65A00FE8692 /* JWTClaims.swift in Sources */,
+				C44A663327B25DE500DBE7A7 /* ResellerView.swift in Sources */,
+				C44A663527B25E6300DBE7A7 /* CustomerView.swift in Sources */,
+				C44467D3279FD5E90027BB2B /* SignUpView.swift in Sources */,
+				C408A5B327EA1E22008C51A4 /* HistoryView.swift in Sources */,
+				C43E2D5A281BDD6300236C59 /* Components.swift in Sources */,
+				C44A663B27B2674E00DBE7A7 /* VerifiyGuaranteeView.swift in Sources */,
 				C44467C0279E957A0027BB2B /* ContentView.swift in Sources */,
+				C410CAF427C62EEC00532578 /* TabViewModel.swift in Sources */,
+				C408A5B127E840A9008C51A4 /* KeyPadView.swift in Sources */,
+				C43E2D58281BDCBB00236C59 /* tabButton.swift in Sources */,
+				C44467D5279FDBAF0027BB2B /* LoginView.swift in Sources */,
+				C4F4881D280E64DE0069E693 /* TxHistory.swift in Sources */,
+				C4F4881B280D62410069E693 /* ScrollRefreshableView.swift in Sources */,
+				C44A663D27B26CAA00DBE7A7 /* MoreView.swift in Sources */,
+				C46CAE8327C332900073B89C /* ShowGuaranteeView.swift in Sources */,
+				C410CAF227C62E6300532578 /* TokenDetailView.swift in Sources */,
 				C44467BE279E957A0027BB2B /* GuaranteeWalletApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -251,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -263,6 +463,7 @@
 		};
 		C44467C9279E957A0027BB2B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C050996E660AB13E75E9B6B /* Pods-GuaranteeWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -272,11 +473,16 @@
 				DEVELOPMENT_TEAM = 6D7T59WV3T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuaranteeWallet/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera permission for reading QR-Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -286,12 +492,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C44467CA279E957A0027BB2B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F74CCA51F752F2E23AF294D /* Pods-GuaranteeWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,11 +508,16 @@
 				DEVELOPMENT_TEAM = 6D7T59WV3T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuaranteeWallet/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera permission for reading QR-Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +527,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -341,6 +553,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C47AFE6527CCAEDF00DA7D1A /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C47AFE6627CCAEDF00DA7D1A /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C47AFE6527CCAEDF00DA7D1A /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C44467B2279E957A0027BB2B /* Project object */;
 }
