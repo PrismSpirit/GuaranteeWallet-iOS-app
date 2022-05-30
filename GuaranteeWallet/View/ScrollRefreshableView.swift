@@ -50,6 +50,7 @@ struct TokenScrollRefreshable<Content: View>: View {
                                     .padding(.trailing, 15)
                             }
                         }
+                        .padding(.bottom, 5)
             ) {
                 content
                     .listRowSeparatorTint(.clear)
@@ -95,9 +96,9 @@ struct HistoryScrollRefreshable<Content: View>: View {
                             
                             Spacer()
                         }
+                        .padding(.bottom, 5)
             ) {
                 content
-                    .listRowSeparatorTint(.clear)
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             }

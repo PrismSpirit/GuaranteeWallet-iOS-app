@@ -12,6 +12,6 @@ struct TxHistory: Identifiable, Hashable {
     let txType: String
     let tokenID: Int
     let tokenFrom: String?
-    let tokenTo: String?
+    let tokenTo: String
     let eventTime: String
 }

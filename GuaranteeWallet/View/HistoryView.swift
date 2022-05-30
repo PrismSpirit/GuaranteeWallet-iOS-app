@@ -12,12 +12,54 @@ struct HistoryView: View {
     @AppStorage("WalletAddress") var WalletAddress: String!
     
     @State var histories: [TxHistory] = []
+    @State var clickedHistoryID: Int? = nil
     
     var body: some View {
         VStack {
             HistoryScrollRefreshable(title: "Pull Down to Reload", tintColor: Color("AccentColor"), content: {
                 ForEach(histories) { history in
                     DrawHistoryCard(history: history)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if clickedHistoryID != nil {
+                                if (clickedHistoryID != history.id) {
+                                    clickedHistoryID = history.id
+                                }
+                                else {
+                                    clickedHistoryID = nil
+                                }
+                            }
+                            else {
+                                clickedHistoryID = history.id
+                            }
+                        }
+                    
+                    if (clickedHistoryID == history.id) {
+                        VStack {
+                            if history.tokenFrom != nil {
+                                Text("From.")
+                                    .foregroundColor(.white)
+                                    .fontWeight(.semibold)
+        
+                                Text(history.tokenFrom!)
+                                    .font(.footnote)
+                                    .foregroundColor(.white)
+                                    .padding(.bottom, 1)
+                            }
+        
+                            Text("To.")
+                                .foregroundColor(.white)
+                                .fontWeight(.semibold)
+        
+//                            Text(history.tokenTo != nil ? history.tokenTo! : "")
+//                                .font(.footnote)
+//                                .foregroundColor(.white)
+                            Text(history.tokenTo)
+                                .font(.footnote)
+                                .foregroundColor(.white)
+                        }
+                        .padding()
+                    }
                 }
             }) {
                 do {

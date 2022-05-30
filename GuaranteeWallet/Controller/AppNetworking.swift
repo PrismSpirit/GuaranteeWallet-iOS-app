@@ -392,7 +392,7 @@ class AppNetworking {
                                                 address == historyData["token_from"].stringValue ? "Sent" :
                                                 address == historyData["token_to"].stringValue ? "Received" : "Unknown",
                                        tokenID: historyData["token_id"].intValue,
-                                       tokenFrom: historyData["token_from"].stringValue,
+                                       tokenFrom: historyData["token_from"].string,
                                        tokenTo: historyData["token_to"].stringValue,
                                        eventTime: historyData["event_time"].stringValue))
             

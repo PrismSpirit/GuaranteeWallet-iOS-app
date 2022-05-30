@@ -11,62 +11,68 @@ struct HistoryCardView: View {
     var history: TxHistory
     
     var body: some View {
-        ZStack {            
+        ZStack {
             VStack {
                 HStack {
-                    Text(history.txType)
-                        .font(.title)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("\(history.txType)HistoryTextColor"))
-                        .padding(.leading, 5)
-                    
-                    Spacer()
-                    
-                    Text("No. \(history.tokenID)")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .padding(.trailing, 5)
-                }
-                
-                HStack {
-                    Spacer()
-                    
-                    Text(history.eventTime)
-                        .font(.footnote)
-                        .foregroundColor(.white)
-                        .padding(.trailing, 5)
-                }
-                .padding(.bottom, 4)
-                
-//                Capsule()
-//                    .frame(width: UIScreen.main.bounds.width * 0.92, height: 0.5)
-//                    .foregroundColor(.white)
-//                    .padding(.bottom)
-                
-                VStack(alignment: .leading) {
-                    if history.tokenFrom != nil {
-                        Text("From.")
-                            .foregroundColor(.white)
+//                    Text(history.txType)
+//                        .font(.title)
+//                        .fontWeight(.semibold)
+//                        .foregroundColor(Color("\(history.txType)HistoryTextColor"))
+//                        .padding(.leading, 5)
+                    VStack {
+                        Text("No. \(history.tokenID)")
+                            .font(.title3)
                             .fontWeight(.semibold)
-                        
-                        Text(history.tokenFrom!)
-                            .font(.footnote)
                             .foregroundColor(.white)
-                            .padding(.bottom, 1)
+                            .padding(.leading, 5)
+                        
+                        Spacer()
                     }
                     
-                    Text("To.")
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
+                    Spacer()
                     
-                    Text(history.tokenTo != nil ? history.tokenTo! : "")
-                        .font(.caption)
-                        .foregroundColor(.white)
+                    VStack(alignment: .trailing) {
+//                        Text("No. \(history.tokenID)")
+//                            .font(.title2)
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(.white)
+//                            .padding(.trailing, 5)
+                        Text(history.txType)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("\(history.txType)HistoryTextColor"))
+                            .padding(.trailing, 5)
+                        
+                        Text(history.eventTime)
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                            .padding(.trailing, 5)
+                    }
                 }
+//                .background(.red.opacity(0.4))
+//                VStack(alignment: .leading) {
+//                    if history.tokenFrom != nil {
+//                        Text("From.")
+//                            .foregroundColor(.white)
+//                            .fontWeight(.semibold)
+//
+//                        Text(history.tokenFrom!)
+//                            .font(.footnote)
+//                            .foregroundColor(.white)
+//                            .padding(.bottom, 1)
+//                    }
+//
+//                    Text("To.")
+//                        .foregroundColor(.white)
+//                        .fontWeight(.semibold)
+//
+//                    Text(history.tokenTo != nil ? history.tokenTo! : "")
+//                        .font(.caption)
+//                        .foregroundColor(.white)
+//                }
             }
             .padding()
         }
-        .padding()
+//        .padding()
     }
 }
