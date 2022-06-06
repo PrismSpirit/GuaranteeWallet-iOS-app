@@ -38,3 +38,7 @@ enum TokenMintingError: Error {
 enum TokenApprovingError: Error {
     case approvingFail
 }
+
+enum GetManufacturerAddressError: Error {
+    case getAddressFail
+}

@@ -16,9 +16,14 @@ struct VerifiyGuaranteeView: View {
     @EnvironmentObject var tabData: TabViewModel
     @State var isScanned: Bool = false
     @State var scannedString: String = ""
-    @State var scanResult: String = ""
-    @State var showVerifyResult: Bool = false
+
+    @State var validationResult: String? = nil
     @State var scannedCard: Card? = nil
+    @State var scannedHistory: [String] = []
+    
+    @State var scannedOffset: CGFloat = 0
+    @State var scannedLastOffset: CGFloat = 0
+    @GestureState var scannedGestureOffset: CGFloat = 0
     
     var body: some View {
         VStack {
@@ -35,108 +40,229 @@ struct VerifiyGuaranteeView: View {
                 .ignoresSafeArea(.all, edges: .top)
             }
         }
-        .sheet(isPresented: $isScanned, onDismiss: {
-            isScanned = false
+        .fullScreenCover(isPresented: $isScanned, onDismiss: {
             scannedCard = nil
-            showVerifyResult = false
+            validationResult = nil
         }) {
-            if let verifyResult = try? verifyQRCode(base64String: scannedString) {
-                if verifyResult["result"] as! Bool {
-                    VStack {
-                        if showVerifyResult {
-                            if scannedCard != nil {
-                                VStack {
-                                    Image(systemName: "checkmark.circle")
+            ZStack {
+                NavigationView() {
+                    ZStack {
+                        Color("BGColor")
+                            .ignoresSafeArea(.all, edges: .all)
+
+                        VStack {
+                            HStack {
+                                Spacer()
+                                
+                                Button(action: {
+                                    scannedCard = nil
+                                    validationResult = nil
+                                    isScanned = false
+                                }) {
+                                    Image(systemName: "xmark")
+                                        .resizable()
+                                        .foregroundColor(Color("AccentColor"))
+                                        .frame(width: 15, height: 15)
+                                        .padding(10)
+                                        .background(Color("BGColor"), in: Circle())
+                                }
+                                .padding(.horizontal)
+                                .padding(.top)
+                            }
+                            .padding(.bottom)
+
+                            VStack {
+                                if validationResult != nil {
+                                    Image(systemName: validationResult! == "Valid" ? "checkmark.circle" : "xmark.circle")
                                         .resizable()
                                         .font(.largeTitle)
-                                        .foregroundColor(.green)
+                                        .foregroundColor(validationResult! == "Valid" ? .green : .red)
                                         .frame(width: 170, height: 170)
                                         .padding()
-                                    
-                                    HStack {
-                                        Text("Valid")
-                                            .font(.title2)
-                                            .padding()
-                                        
-                                        Text("This is valid token")
-                                            .font(.title2)
-                                            .padding()
+
+                                    Text(validationResult!)
+                                        .font(.title)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
+
+                                    VStack(spacing: 20) {
+                                        HStack {
+                                            Text("Token ID")
+                                                .font(.title2)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+
+                                            Spacer()
+
+                                            Text(scannedCard != nil ? scannedCard!.tokenID : "N/A")
+                                                .font(.footnote)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding(.horizontal)
+
+                                        HStack {
+                                            Text("Name")
+                                                .font(.title2)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+
+                                            Spacer()
+
+                                            Text(scannedCard != nil ? scannedCard!.productName : "N/A")
+                                                .font(.footnote)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding(.horizontal)
+
+                                        HStack {
+                                            Text("Brand")
+                                                .font(.title2)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+
+                                            Spacer()
+
+                                            if scannedCard != nil {
+                                                NavigationLink {
+                                                    ValidateManufacturerView(scannedCard: $scannedCard)
+                                                        .navigationBarTitle("Validate Manufacuter", displayMode: .inline)
+                                                } label: {
+                                                    Text(scannedCard!.brand)
+                                                        .font(.footnote)
+                                                        .fontWeight(.semibold)
+                                                        .underline()
+                                                }
+                                            }
+                                            else {
+                                                Text("N/A")
+                                                    .font(.footnote)
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.white)
+                                            }
+                                        }
+                                        .padding(.horizontal)
+
+                                        HStack {
+                                            Text("Production Date")
+                                                .font(.title2)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+
+                                            Spacer()
+
+                                            Text(scannedCard != nil ? scannedCard!.buildDate : "N/A")
+                                                .font(.footnote)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding(.horizontal)
+
+                                        HStack {
+                                            Text("Expiration Date")
+                                                .font(.title2)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+
+                                            Spacer()
+
+                                            Text(scannedCard != nil ? scannedCard!.expireDate : "N/A")
+                                                .font(.footnote)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding(.horizontal)
+
+                                        HStack {
+                                            Text("Details")
+                                                .font(.title2)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+
+                                            Spacer()
+
+                                            Text(scannedCard != nil ? scannedCard!.details : "N/A")
+                                                .font(.footnote)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding(.horizontal)
+
+                                        HStack {
+                                            Text("Tx History")
+                                                .font(.title2)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+
+                                            Spacer()
+
+                                            if scannedCard != nil {
+                                                NavigationLink {
+                                                    TxHistoryView(txHistoryList: $scannedHistory)
+                                                        .navigationBarTitle("Tx History", displayMode: .inline)
+                                                } label: {
+                                                    Text("Click me!")
+                                                        .font(.footnote)
+                                                        .fontWeight(.semibold)
+                                                        .underline()
+                                                }
+
+                                            }
+                                            else {
+                                                Text("N/A")
+                                                    .font(.footnote)
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.white)
+                                            }
+                                        }
+                                        .padding(.horizontal)
                                     }
+                                    .padding()
+                                }
+                            }
+
+                            Spacer()
+                        }
+                    }
+                    .navigationBarHidden(true)
+                }
+
+            }
+            .onAppear {
+                if let verifyResult = try? verifyQRCode(base64String: scannedString) {
+                    if verifyResult["result"] as! Bool {
+                        Task {
+                            if let resultOfVerify: [Any] = try? await AppNetworking.shared.verifyToken(accessToken: AccessToken,
+                                                                                           tokenID: verifyResult["tid"] as! Int,
+                                                                                           tokenOwner: verifyResult["owner"] as! String) {
+                                scannedCard = resultOfVerify[0] as? Card
+                                
+                                for x in (resultOfVerify[1] as? [[String?]])! {
+                                    scannedHistory.append(x[1]!)
                                 }
                                 
-                                GuaranteeCardView(card: scannedCard!)
-                                    .padding()
+                                validationResult = "Valid"
                             }
                             else {
-                                VStack {
-                                    Image(systemName: "xmark.circle")
-                                        .resizable()
-                                        .font(.largeTitle)
-                                        .foregroundColor(.red)
-                                        .frame(width: 170, height: 170)
-                                        .padding()
-                                    
-                                    HStack {
-                                        Text("Invalid")
-                                            .font(.title2)
-                                            .padding()
-                                        
-                                        Text("This is invalid token")
-                                            .font(.title2)
-                                            .padding()
-                                    }
-                                }
+                                validationResult = "Invalid"
                             }
                         }
                     }
-                    .task {
-                        scannedCard = try? await AppNetworking.shared.verifyToken(accessToken: AccessToken, tokenID: verifyResult["tid"] as! Int, tokenOwner: verifyResult["owner"] as! String)
-                        showVerifyResult = true
+                    else {
+                        validationResult = "Expired"
                     }
                 }
                 else {
-                    VStack {
-                        Image(systemName: "xmark.circle")
-                            .resizable()
-                            .font(.largeTitle)
-                            .foregroundColor(.red)
-                            .frame(width: 170, height: 170)
-                            .padding()
-
-//                        GuaranteeCardView(card: )
-                        
-                        HStack {
-                            Text("Expired")
-                                .font(.title2)
-                                .padding()
-
-                            Text("fsijfodsj")
-                                .font(.title2)
-                                .padding()
-                        }
-                    }
+                    validationResult = "Invalid"
                 }
             }
-            else {
-                VStack {
-                    Image(systemName: "xmark.circle")
-                        .resizable()
-                        .font(.largeTitle)
-                        .foregroundColor(.red)
-                        .frame(width: 170, height: 170)
-                        .padding()
-                    
-                    HStack {
-                        Text("Invalid")
-                            .font(.title2)
-                            .padding()
-                        
-                        Text("fsijfodsj")
-                            .font(.title2)
-                            .padding()
-                    }
-                }
-            }
+        }
+    }
+    
+    func scannedOnChange() {
+        DispatchQueue.main.async {
+            self.scannedOffset = scannedGestureOffset + scannedLastOffset
         }
     }
     
@@ -166,32 +292,5 @@ struct VerifiyGuaranteeView: View {
         return ["result": true,
                 "tid": jwt.claims.tid,
                 "owner": jwt.claims.owner]
-    }
-    
-    func test(accessToken: String, tokenID: Int, tokenOwner: String) throws -> Card? {
-//        Task {
-//            if let aaa: Card = try! await AppNetworking.shared.verifyToken(accessToken: accessToken, tokenID: tokenID, tokenOwner: tokenOwner) {
-//                return aaa
-//            }
-//        }
-        
-//        var c: Card? = nil
-        
-//        Task {
-//            c = try? await AppNetworking.shared.verifyToken(accessToken: accessToken, tokenID: tokenID, tokenOwner: tokenOwner)
-//        }
-        print("task start")
-        Task {
-            return try? await AppNetworking.shared.verifyToken(accessToken: accessToken, tokenID: tokenID, tokenOwner: tokenOwner)
-        }
-        print("test end")
-        
-        return nil
-    }
-}
-
-struct VerifiyGuaranteeView_Previews: PreviewProvider {
-    static var previews: some View {
-        VerifiyGuaranteeView()
     }
 }

@@ -243,7 +243,10 @@ class AppNetworking {
         return QRCode
     }
     
-    func verifyToken(accessToken: String, tokenID: Int, tokenOwner: String) async throws -> Card? {
+    func verifyToken(accessToken: String, tokenID: Int, tokenOwner: String) async throws -> [Any] {
+        var result: [Any] = []
+        var txHistoryList: [[String?]] = []
+        
         let url = URL(string: "https://capstone-337506.du.r.appspot.com/node/validate")!
         
         var request = URLRequest(url: url)
@@ -274,14 +277,27 @@ class AppNetworking {
             throw NetworkError.dataDecodingError
         }
          
-        return Card(id: Int.random(in: 0...100) % 6,
-                    tokenID: jsonData["info"]["TokenID"].stringValue,
-                    logoImg: "logo_\(jsonData["info"]["Brand"].stringValue)",
-                    brand: jsonData["info"]["Brand"].stringValue,
-                    productName: jsonData["info"]["ProductName"].stringValue,
-                    buildDate: jsonData["info"]["ProductionDate"].stringValue,
-                    expireDate: jsonData["info"]["ExpirationDate"].stringValue,
-                    details: jsonData["info"]["Deatails"].stringValue)
+        result.append(
+            Card(id: Int.random(in: 0...100) % 6,
+                 tokenID: jsonData["info"]["TokenID"].stringValue,
+                 logoImg: "logo_\(jsonData["info"]["Brand"].stringValue)",
+                 brand: jsonData["info"]["Brand"].stringValue,
+                 productName: jsonData["info"]["ProductName"].stringValue,
+                 buildDate: jsonData["info"]["ProductionDate"].stringValue,
+                 expireDate: jsonData["info"]["ExpirationDate"].stringValue,
+                 details: jsonData["info"]["Details"].stringValue)
+        )
+        
+        for tx in jsonData["txHistory"].arrayValue {
+            var tmp: [String?] = []
+            tmp.append(tx[0].string)
+            tmp.append(tx[1].string)
+            txHistoryList.append(tmp)
+        }
+        
+        result.append(txHistoryList)
+        
+        return result
     }
     
     func sendToken(accessToken: String, tokenOwner: String, tokenReceiver: String, tokenID: Int, walletPW: String) async throws {
@@ -462,5 +478,37 @@ class AppNetworking {
               httpResponse.statusCode == 200 else {
             throw TokenApprovingError.approvingFail
         }
+    }
+    
+    func getManufacturerAddress(tokenID: Int) async throws -> String {
+        let url = URL(string: "https://capstone-337506.du.r.appspot.com/tokens/manufacturer")!
+        
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let payloadJSON = JSON(
+            [
+                "tid": tokenID
+            ]
+        )
+        
+        guard let payload = try? payloadJSON.rawData() else {
+            throw NetworkError.payloadEncodingError
+        }
+        
+        let (data, response) = try await URLSession.shared.upload(for: request, from: payload)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+            throw GetManufacturerAddressError.getAddressFail
+        }
+        
+        guard let jsonData = try? JSON(data: data) else {
+            throw NetworkError.dataDecodingError
+        }
+        
+        return jsonData["detail"].stringValue
     }
 }
