@@ -35,28 +35,29 @@ struct HistoryView: View {
                         }
                     
                     if (clickedHistoryID == history.id) {
-                        VStack {
+                        VStack(alignment: .leading) {
                             if history.tokenFrom != nil {
                                 Text("From.")
                                     .foregroundColor(.white)
                                     .fontWeight(.semibold)
+                                    .padding(.horizontal, 3)
         
                                 Text(history.tokenFrom!)
                                     .font(.footnote)
                                     .foregroundColor(.white)
                                     .padding(.bottom, 1)
+                                    .padding(.horizontal, 5)
                             }
         
                             Text("To.")
                                 .foregroundColor(.white)
                                 .fontWeight(.semibold)
-        
-//                            Text(history.tokenTo != nil ? history.tokenTo! : "")
-//                                .font(.footnote)
-//                                .foregroundColor(.white)
+                                .padding(.horizontal, 3)
+                            
                             Text(history.tokenTo)
                                 .font(.footnote)
                                 .foregroundColor(.white)
+                                .padding(.horizontal, 5)
                         }
                         .padding()
                     }
