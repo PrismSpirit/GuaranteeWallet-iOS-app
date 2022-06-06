@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		189FAF4F1BB1860883C6FEAE /* Pods_GuaranteeWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C07E51DDBE8725E85A15DBF /* Pods_GuaranteeWallet.framework */; };
+		C402D091284DCDCD00C961CD /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402D090284DCDCD00C961CD /* HapticManager.swift */; };
 		C408A5B127E840A9008C51A4 /* KeyPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408A5B027E840A9008C51A4 /* KeyPadView.swift */; };
 		C408A5B327EA1E22008C51A4 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408A5B227EA1E22008C51A4 /* HistoryView.swift */; };
 		C410CAF227C62E6300532578 /* TokenDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C410CAF127C62E6300532578 /* TokenDetailView.swift */; };
@@ -44,6 +45,7 @@
 		0F74CCA51F752F2E23AF294D /* Pods-GuaranteeWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuaranteeWallet.release.xcconfig"; path = "Target Support Files/Pods-GuaranteeWallet/Pods-GuaranteeWallet.release.xcconfig"; sourceTree = "<group>"; };
 		4C050996E660AB13E75E9B6B /* Pods-GuaranteeWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuaranteeWallet.debug.xcconfig"; path = "Target Support Files/Pods-GuaranteeWallet/Pods-GuaranteeWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		9C07E51DDBE8725E85A15DBF /* Pods_GuaranteeWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GuaranteeWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C402D090284DCDCD00C961CD /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		C408A5B027E840A9008C51A4 /* KeyPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadView.swift; sourceTree = "<group>"; };
 		C408A5B227EA1E22008C51A4 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		C410CAF127C62E6300532578 /* TokenDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				C410CAF927C876C600532578 /* AppNetworking.swift */,
+				C402D090284DCDCD00C961CD /* HapticManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				C44A663527B25E6300DBE7A7 /* CustomerView.swift in Sources */,
 				C44467D3279FD5E90027BB2B /* SignUpView.swift in Sources */,
 				C408A5B327EA1E22008C51A4 /* HistoryView.swift in Sources */,
+				C402D091284DCDCD00C961CD /* HapticManager.swift in Sources */,
 				C43E2D5A281BDD6300236C59 /* Components.swift in Sources */,
 				C44A663B27B2674E00DBE7A7 /* VerifiyGuaranteeView.swift in Sources */,
 				C44467C0279E957A0027BB2B /* ContentView.swift in Sources */,

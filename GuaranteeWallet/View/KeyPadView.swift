@@ -64,6 +64,8 @@ struct KeyPadView: View {
                     HStack(spacing: 20) {
                         ForEach(0..<3) { y in
                             Button(action: {
+                                HapticManager.instance.impact(style: .rigid)
+                                
                                 if walletPW.count < 8 {
                                     walletPW = walletPW + String(keypadNumbers[3 * x + y])
                                     if walletPW.count == 8 {
@@ -90,7 +92,14 @@ struct KeyPadView: View {
                         .foregroundColor(.clear)
                     
                     Button(action: {
-                        walletPW = walletPW + String(keypadNumbers.last!)
+                        HapticManager.instance.impact(style: .rigid)
+                        
+                        if walletPW.count < 8 {
+                            walletPW = walletPW + String(keypadNumbers.last!)
+                            if walletPW.count == 8 {
+                                loadKeyPadView = false
+                            }
+                        }
                     }) {
                         ZStack {
                             Circle()
@@ -104,6 +113,8 @@ struct KeyPadView: View {
                     }
                     
                     Button(action: {
+                        HapticManager.instance.impact(style: .rigid)
+                        
                         if walletPW.count != 0 {
                             walletPW = String(walletPW.dropLast())
                         }
