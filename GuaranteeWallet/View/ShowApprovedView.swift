@@ -86,7 +86,7 @@ struct ShowApprovedView: View {
         else {
             GuaranteeCardView(card: card)
                 .padding()
-                .matchedGeometryEffect(id: "A\(card.id)Send", in: animation)
+                .matchedGeometryEffect(id: "\(card.tokenID)Card", in: animation)
         }
     }
     
@@ -97,7 +97,7 @@ struct ShowApprovedView: View {
         }
         else {
             SendButton()
-                .matchedGeometryEffect(id: "A\(card.id)Send", in: animation)
+                .matchedGeometryEffect(id: "\(card.tokenID)Send", in: animation)
         }
     }
 }

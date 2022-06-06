@@ -26,15 +26,17 @@ struct TokenDetailView: View {
                 ZStack {
                     GuaranteeCardView(card: card)
                         .padding()
-                        .matchedGeometryEffect(id: "\(tabData.cardType!)\(card.id)Card", in: animation)
+                        .matchedGeometryEffect(id: "\(card.tokenID)Card", in: animation)
                     
                     SendButton()
-                        .matchedGeometryEffect(id: "\(tabData.cardType!)\(card.id)Send", in: animation)
+                        .matchedGeometryEffect(id: "\(card.tokenID)Send", in: animation)
                         .opacity(0)
                         .offset(x: 125, y: -80)
                     
                     Button(action: {
                         clickBan = true
+                        isQRLoading = false
+                        uiImage = nil
                         
                         withAnimation(.spring()) {
                             tabData.currentCard = nil
@@ -108,9 +110,6 @@ struct TokenDetailView: View {
             }
             .onDisappear {
                 withAnimation {
-                    showData = false
-                    isQRLoading = false
-                    uiImage = nil
                     clickBan = false
                 }
             }
