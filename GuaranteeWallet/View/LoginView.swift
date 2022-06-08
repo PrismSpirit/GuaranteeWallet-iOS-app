@@ -18,6 +18,7 @@ struct LoginView: View {
     
     @State var isLoggingIn: Bool = false
     @State var alertLoginFailed: Bool = false
+    @State var alertidPWMismatch: Bool = false
     
     @State var userID = ""
     @State var password = ""
@@ -56,6 +57,7 @@ struct LoginView: View {
                 
                 TextField("User ID", text: $userID)
                     .foregroundColor(.white)
+                    .textContentType(.username)
             }
             .padding()
             .background(.white.opacity(userID == "" ? 0 : 0.12))
@@ -70,6 +72,7 @@ struct LoginView: View {
                 
                 SecureField("Password", text: $password)
                     .foregroundColor(.white)
+                    .textContentType(.password)
             }
             .padding()
             .background(.white.opacity(password == "" ? 0 : 0.12))
@@ -89,6 +92,8 @@ struct LoginView: View {
                             WalletAddress = userInfo!.userWallet
                             PUKey = userInfo!.publicKey
                             isValidAccessToken = true
+                        } catch NetworkError.idPWMismatch {
+                            alertidPWMismatch = true
                         } catch let error {
                             print(error.localizedDescription)
                             alertLoginFailed = true
@@ -137,6 +142,48 @@ struct LoginView: View {
                 .foregroundColor(.white)
                 .background(.black.opacity(0.4))
                 .opacity(isLoggingIn ? 1 : 0)
+        )
+        .overlay(
+            ZStack {
+                Color(.black).opacity(0.4)
+
+                VStack {
+                    Text("Login Failed")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding()
+
+                    Text("ID/PW does not match")
+                        .font(.title3)
+                        .foregroundColor(.white)
+
+                    Text("Please try again")
+                        .font(.title3)
+                        .foregroundColor(.white)
+
+                    HStack {
+                        Button(action: {
+                            alertidPWMismatch = false
+                        }) {
+                            Text("CONFIRM")
+                                .fontWeight(.heavy)
+                                .foregroundColor(.black)
+                                .padding(.vertical)
+                                .frame(width: UIScreen.main.bounds.width / 2.2)
+                                .background(Color("AccentColor"))
+                                .clipShape(Capsule())
+                                .padding()
+                        }
+                    }
+                }
+                .padding()
+                .frame(maxWidth: UIScreen.main.bounds.width * 0.8)
+                .background(Color("BGColor").opacity(0.95))
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+            }
+            .ignoresSafeArea(.all)
+            .showIf(condition: alertidPWMismatch)
         )
         .overlay(
             ZStack {

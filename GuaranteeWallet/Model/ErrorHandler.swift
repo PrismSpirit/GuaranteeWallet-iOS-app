@@ -13,6 +13,7 @@ enum NetworkError: Error {
     case dataDecodingError
     case base64DecodingError
     case creatingQRError
+    case idPWMismatch
 }
 
 enum QRVerificationError: Error {

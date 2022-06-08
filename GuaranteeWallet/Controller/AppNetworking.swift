@@ -91,8 +91,12 @@ class AppNetworking {
         let (data, response) = try await URLSession.shared.upload(for: request, from: payload)
         
         guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
+              httpResponse.statusCode == 200 || httpResponse.statusCode == 401 else {
             throw NetworkError.invalidServerResponse
+        }
+        
+        if httpResponse.statusCode == 401 {
+            throw NetworkError.idPWMismatch
         }
         
         guard let jsonData = try? JSON(data: data) else {
